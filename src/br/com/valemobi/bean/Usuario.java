@@ -27,6 +27,9 @@ public class Usuario {
 	@Column(name="DS_SENHA")
 	private String senha;
 	
+	@Column(name="VL_CARTEIRA")
+	private double carteira;
+	
 	public int getCodigo() {
 		return codigo;
 	}
@@ -50,5 +53,11 @@ public class Usuario {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public double getCarteira() {
+		return carteira;
+	}
+	public void setCarteira(double carteira) {
+		this.carteira = carteira;
 	}
 }

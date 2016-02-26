@@ -1,7 +1,0 @@
-2016-02-26 19:01:32 INFO  OracleUsuarioDAO:27 - Cadastrando novo usuario
-2016-02-26 19:01:32 INFO  OracleUsuarioDAO:28 - Comecando conexao...
-2016-02-26 19:01:32 DEBUG logging:38 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
-2016-02-26 19:01:32 DEBUG ClassLoaderServiceImpl:124 - Incoming config yielded no classloaders; adding standard SE ones
-2016-02-26 19:01:32 INFO  PersistenceXmlParser:80 - HHH000318: Could not find any META-INF/persistence.xml file in the classpath
-2016-02-26 19:01:32 DEBUG HibernatePersistenceProvider:87 - Located and parsed 0 persistence units; checking each
-2016-02-26 19:01:32 DEBUG HibernatePersistenceProvider:117 - Found no matching persistence units

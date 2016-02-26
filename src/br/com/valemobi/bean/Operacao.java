@@ -15,11 +15,12 @@ import javax.persistence.Table;
 @SequenceGenerator(name="seqTransacao", sequenceName="SEQ_TRANSACAO", allocationSize=1)
 public class Operacao {
 	
-	public Operacao(int quantidade, Mercadoria mercadoria, TipoNegocio tipoNegocio) {
+	public Operacao(int quantidade, Mercadoria mercadoria, TipoNegocio tipoNegocio, Usuario novoDono) {
 		super();
 		this.quantidade = quantidade;
 		this.mercadoria = mercadoria;
 		this.tipoNegocio = tipoNegocio;
+		this.setNovoDono(novoDono);
 
 		calcularPrecoTotal();
 	}
@@ -28,6 +29,9 @@ public class Operacao {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seqTransacao")
 	@Column(name="CD_TRANSACAO")
 	private int codigo;
+	
+	@Column(name="CD_NOVO_DONO")
+	private Usuario novoDono;
 	
 	@Column(name="NR_PRODUTOS")
 	private int quantidade;
@@ -85,5 +89,13 @@ public class Operacao {
 			calcularPrecoTotal();
 		
 		this.quantidade = quantidade;
+	}
+
+	public Usuario getNovoDono() {
+		return novoDono;
+	}
+
+	public void setNovoDono(Usuario novoDono) {
+		this.novoDono = novoDono;
 	}
 }

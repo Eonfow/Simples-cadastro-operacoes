@@ -20,6 +20,9 @@ public class Mercadoria {
 	@Column(name="CD_MERCADORIA")
 	private int codigo;
 	
+	@Column(name="CD_DONO")
+	private Usuario dono;
+	
 	@Enumerated(EnumType.STRING)
 	private TipoMercadoria tipoMercadoria;
 
@@ -59,5 +62,13 @@ public class Mercadoria {
 
 	public void setPreco(double preco) {
 		this.preco = preco;
+	}
+
+	public Usuario getDono() {
+		return dono;
+	}
+
+	public void setDono(Usuario dono) {
+		this.dono = dono;
 	}
 }
