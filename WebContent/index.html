@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="ISO-8859-1">
+	<meta charset="utf-8">
 	<title>Teste Do Mercado</title>
 
 	<link rel="stylesheet" type="text/css"
 		href="assets/semantic/dist/semantic.min.css">
 	<link rel="stylesheet" type="text/css" 
-		href="css/site.css">
+		href="css/style.css">
 
 	<script src="js/jquery.min.js"></script>
 	<script src="assets/semantic/dist/semantic.min.js"></script>
@@ -15,6 +15,71 @@
 </head>
 <body>
 
+	<i class="big link sidebar icon"></i>
+	
+	<div class="ui thin left vertical inverted sidebar labeled icon menu">
+		<a class="active violet item">
+			<i class="home icon"></i> Home
+		</a> 
+		<a class="blue item" href="https://github.com/Eonfow/teste-do-mercado">
+			<i class="github icon"></i> Github
+		</a>
+		<a class="teal item" href="mailto:bruno14mr@gmail.com">
+			<i class="google icon"></i> Gmail
+		</a>
+	</div>
+
+	<div class="ui form container">
+	  <h2>Trade Smarter</h2>
+	  <form class="ui form segment">
+        <p>Tell Us About Yourself</p>
+        <div class="two fields">
+          <div class="field">
+            <label>Código da Mercadoria</label>
+            <input placeholder="01234" name="codigo" type="text">
+          </div>
+          <div class="field">
+            <label>Gender</label>
+            <div class="ui dropdown selection" tabindex="0"><select name="gender">
+              <option value="">Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select><i class="dropdown icon"></i><div class="default text">Gender</div><div class="menu" tabindex="-1"><div class="item" data-value="male">Male</div><div class="item" data-value="female">Female</div></div></div>
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>Username</label>
+            <input placeholder="Username" name="username" type="text">
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" name="password">
+          </div>
+        </div>
+        <div class="field">
+          <label>Skills</label>
+          <div class="ui dropdown selection multiple" tabindex="0"><select name="skills" multiple="">
+            <option value="">Select Skills</option>
+            <option value="css">CSS</option>
+            <option value="html">HTML</option>
+            <option value="javascript">Javascript</option>
+            <option value="design">Graphic Design</option>
+            <option value="plumbing">Plumbing</option>
+            <option value="mech">Mechanical Engineering</option>
+            <option value="repair">Kitchen Repair</option>
+          </select><i class="dropdown icon"></i><div class="default text">Select Skills</div><div class="menu" tabindex="-1"><div class="item" data-value="css">CSS</div><div class="item" data-value="html">HTML</div><div class="item" data-value="javascript">Javascript</div><div class="item" data-value="design">Graphic Design</div><div class="item" data-value="plumbing">Plumbing</div><div class="item" data-value="mech">Mechanical Engineering</div><div class="item" data-value="repair">Kitchen Repair</div></div></div>
+        </div>
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input type="checkbox" name="terms" tabindex="0" class="hidden">
+            <label>I agree to the terms and conditions</label>
+          </div>
+        </div>
+        <div class="ui blue submit button">Submit</div>
+        <div class="ui error message"></div>
+      </form>
+	</div>
 	
 </body>
 </html>

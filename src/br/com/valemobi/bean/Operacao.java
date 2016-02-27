@@ -7,40 +7,33 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="T_TDM_OPERACAO")
-@SequenceGenerator(name="seqTransacao", sequenceName="SEQ_TRANSACAO", allocationSize=1)
 public class Operacao {
-	
-	public Operacao(int quantidade, Mercadoria mercadoria, TipoNegocio tipoNegocio, Usuario novoDono) {
-		super();
-		this.quantidade = quantidade;
-		this.mercadoria = mercadoria;
-		this.tipoNegocio = tipoNegocio;
-		this.setNovoDono(novoDono);
-
-		calcularPrecoTotal();
-	}
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seqTransacao")
-	@Column(name="CD_TRANSACAO")
-	private int codigo;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="CD_OPERACAO")
+	private int codigoOp;
 	
-	@Column(name="CD_NOVO_DONO")
-	private Usuario novoDono;
-	
-	@Column(name="NR_PRODUTOS")
+	@Column(name="QT_PRODUTOS")
 	private int quantidade;
 	
+	@Enumerated(EnumType.STRING)
+	@Column(name="NM_TIPO_NEGOCIO")
+	private TipoNegocio tipoNegocio;
+	
 	@Column(name="CD_MERCADORIA")
-	private Mercadoria mercadoria;
+	private int codigoMerc;
 	
 	@Enumerated(EnumType.STRING)
-	private TipoNegocio tipoNegocio;
+	@Column(name="NM_TIPO_MERCADORIA")
+	private TipoMercadoria tipoMercadoria;
+
+	@Column(name="NM_MERCADORIA")
+	private String nomeMerc;
 	
 	@Column(name="VL_TOTAL")
 	private double precoTotal;
@@ -53,31 +46,20 @@ public class Operacao {
 		this.tipoNegocio = tipoNegocio;
 	}
 	
-	private void calcularPrecoTotal(){
-		precoTotal = mercadoria.getPreco() * quantidade;
+	public void setPrecoTotal(double precoTotal){
+		this.precoTotal = precoTotal;
 	}
 
 	public double getPrecoTotal() {
 		return precoTotal;
 	}
 
-	public int getCodigo() {
-		return codigo;
+	public int getCodigoOp() {
+		return codigoOp;
 	}
 
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
-	}
-
-	public Mercadoria getMercadoria() {
-		return mercadoria;
-	}
-
-	public void setMercadoria(Mercadoria mercadoria) {
-		if(mercadoria != null && quantidade > 0)
-			calcularPrecoTotal();
-		
-		this.mercadoria = mercadoria;
+	public void setCodigoOp(int codigo) {
+		this.codigoOp = codigo;
 	}
 
 	public int getQuantidade() {
@@ -85,17 +67,30 @@ public class Operacao {
 	}
 
 	public void setQuantidade(int quantidade) {
-		if(mercadoria != null && quantidade > 0)
-			calcularPrecoTotal();
-		
 		this.quantidade = quantidade;
 	}
 
-	public Usuario getNovoDono() {
-		return novoDono;
+	public int getCodigoMerc() {
+		return codigoMerc;
 	}
 
-	public void setNovoDono(Usuario novoDono) {
-		this.novoDono = novoDono;
+	public void setCodigoMerc(int codigoMerc) {
+		this.codigoMerc = codigoMerc;
+	}
+
+	public TipoMercadoria getTipoMercadoria() {
+		return tipoMercadoria;
+	}
+
+	public void setTipoMercadoria(TipoMercadoria tipoMercadoria) {
+		this.tipoMercadoria = tipoMercadoria;
+	}
+
+	public String getNome() {
+		return nomeMerc;
+	}
+
+	public void setNome(String nome) {
+		this.nomeMerc = nome;
 	}
 }

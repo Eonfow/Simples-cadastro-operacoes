@@ -10,10 +10,10 @@ import org.slf4j.LoggerFactory;
 import br.com.valemobi.bean.Operacao;
 import br.com.valemobi.dao.interfaces.OperacaoDAO;
 
-public class OracleOperacaoDAO implements OperacaoDAO{
+public class MySqlOperacaoDAO implements OperacaoDAO{
 	
 	private static final Logger log = 
-			LoggerFactory.getLogger(OracleOperacaoDAO.class);
+			LoggerFactory.getLogger(MySqlOperacaoDAO.class);
 
 	@Override
 	public void cadastrar(Operacao obj) {
@@ -21,7 +21,7 @@ public class OracleOperacaoDAO implements OperacaoDAO{
 		log.info("Comecando conexao...");
 		
 		EntityManagerFactory fabrica = 
-				Persistence.createEntityManagerFactory("CLIENTE_ORACLE");
+				Persistence.createEntityManagerFactory("CLIENTE_MYSQL");
 		
 		EntityManager em = fabrica.createEntityManager();
 

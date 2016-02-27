@@ -1,0 +1,30 @@
+body {
+  overflow-x: hidden;
+  
+  font-size: 14px;
+  
+  color: rgba(0, 0, 0, 0.87);
+  font-smoothing: antialiased;
+}
+
+h2, h4{
+	text-align: center;
+}
+
+.sidebar.icon{
+	position: fixed;
+	
+	top: 0.2em;
+	left: 0.4em;
+	
+	width: 40px;
+	height: 32px;
+	
+	border-radius: 5px;
+    border: 2px solid black;
+}
+
+.ui.form.container{
+	padding-top: 5em;
+	width: 800px;
+}
