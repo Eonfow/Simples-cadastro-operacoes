@@ -86,11 +86,11 @@ public class Operacao {
 		this.tipoMercadoria = tipoMercadoria;
 	}
 
-	public String getNome() {
+	public String getNomeMerc() {
 		return nomeMerc;
 	}
 
-	public void setNome(String nome) {
+	public void setNomeMerc(String nome) {
 		this.nomeMerc = nome;
 	}
 }
