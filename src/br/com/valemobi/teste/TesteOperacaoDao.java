@@ -1,5 +1,7 @@
 package br.com.valemobi.teste;
 
+import java.sql.SQLException;
+
 import br.com.valemobi.bean.Operacao;
 import br.com.valemobi.bean.TipoMercadoria;
 import br.com.valemobi.bean.TipoNegocio;
@@ -12,7 +14,7 @@ public class TesteOperacaoDao {
 	public static void main(String[] args) {
 		Operacao op = new Operacao();
 		
-		op.setCodigoMerc(01234);
+		op.setCodigoMerc(1234);
 		op.setNomeMerc("Teste");
 		op.setPrecoTotal(100.50);
 		op.setQuantidade(2);
@@ -22,7 +24,12 @@ public class TesteOperacaoDao {
 		DAOFactory fc = DAOFactory.getFactory(TipoBanco.MYSQL);
 		OperacaoDAO daoOp = fc.getOperacaoDAO();
 		
-		daoOp.cadastrar(op);	
+		try {
+			daoOp.cadastrar(op);
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			System.err.println("Erro ao cadastrar");
+		}	
 	}
 
 }

@@ -1,41 +1,41 @@
 package br.com.valemobi.bean;
 
-import javax.persistence.Column;
+/*import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.Table;*/
 
-@Entity
-@Table(name="T_TDM_OPERACAO")
+//@Entity
+//@Table(name="T_TDM_OPERACAO")
 public class Operacao {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="CD_OPERACAO")
+	//@Id
+	//@GeneratedValue(strategy=GenerationType.AUTO)
+	//@Column(name="CD_OPERACAO")
 	private int codigoOp;
 	
-	@Column(name="QT_PRODUTOS")
+	//@Column(name="QT_PRODUTOS")
 	private int quantidade;
 	
-	@Enumerated(EnumType.STRING)
-	@Column(name="NM_TIPO_NEGOCIO")
+	//@Enumerated(EnumType.STRING)
+	//@Column(name="NM_TIPO_NEGOCIO")
 	private TipoNegocio tipoNegocio;
 	
-	@Column(name="CD_MERCADORIA")
+	//@Column(name="CD_MERCADORIA")
 	private int codigoMerc;
 	
-	@Enumerated(EnumType.STRING)
-	@Column(name="NM_TIPO_MERCADORIA")
+	//@Enumerated(EnumType.STRING)
+	//@Column(name="NM_TIPO_MERCADORIA")
 	private TipoMercadoria tipoMercadoria;
 
-	@Column(name="NM_MERCADORIA")
+	//@Column(name="NM_MERCADORIA")
 	private String nomeMerc;
 	
-	@Column(name="VL_TOTAL")
+	//@Column(name="VL_TOTAL")
 	private double precoTotal;
 
 	public TipoNegocio getTipoNegocio() {
