@@ -31,52 +31,59 @@
 
 	<div class="ui form container">
 	  <h2>Trade Smarter</h2>
-	  <form class="ui form segment">
-        <p>Tell Us About Yourself</p>
+	  <form class="ui form segment" method="post" action="javascript:registrarOperacao()">
+        <p>Cadastre uma operação</p>
         <div class="two fields">
           <div class="field">
             <label>Código da Mercadoria</label>
-            <input placeholder="01234" name="codigo" type="text">
+            <input placeholder="1234" id="codigo" type="text">
           </div>
           <div class="field">
-            <label>Gender</label>
-            <div class="ui dropdown selection" tabindex="0"><select name="gender">
-              <option value="">Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select><i class="dropdown icon"></i><div class="default text">Gender</div><div class="menu" tabindex="-1"><div class="item" data-value="male">Male</div><div class="item" data-value="female">Female</div></div></div>
+            <label>Tipo do Negócio</label>
+            <div class="ui dropdown selection" id="tipoNegocio" tabindex="0">
+            	<i class="dropdown icon"></i>
+            	<div class="default text">Tipo do Negócio</div>
+            		<div class="menu" tabindex="-1">
+            		<div class="item" data-value="compra">Compra</div>
+            		<div class="item" data-value="venda">Venda</div>
+            	</div>
+            </div>
           </div>
         </div>
         <div class="two fields">
           <div class="field">
-            <label>Username</label>
-            <input placeholder="Username" name="username" type="text">
+            <label>Nome Mercadoria</label>
+            <input placeholder="Nome Mercadoria" id="nomeMerc" type="text">
           </div>
           <div class="field">
-            <label>Password</label>
-            <input type="password" name="password">
+            <label>Preco Total</label>
+            <input placeholder="0.00" type="text" id="precoTotal">
           </div>
         </div>
-        <div class="field">
-          <label>Skills</label>
-          <div class="ui dropdown selection multiple" tabindex="0"><select name="skills" multiple="">
-            <option value="">Select Skills</option>
-            <option value="css">CSS</option>
-            <option value="html">HTML</option>
-            <option value="javascript">Javascript</option>
-            <option value="design">Graphic Design</option>
-            <option value="plumbing">Plumbing</option>
-            <option value="mech">Mechanical Engineering</option>
-            <option value="repair">Kitchen Repair</option>
-          </select><i class="dropdown icon"></i><div class="default text">Select Skills</div><div class="menu" tabindex="-1"><div class="item" data-value="css">CSS</div><div class="item" data-value="html">HTML</div><div class="item" data-value="javascript">Javascript</div><div class="item" data-value="design">Graphic Design</div><div class="item" data-value="plumbing">Plumbing</div><div class="item" data-value="mech">Mechanical Engineering</div><div class="item" data-value="repair">Kitchen Repair</div></div></div>
+        <div class="two fields">
+        	<div class="field">
+            	<label>Quantidade</label>
+            	<input placeholder="0" type="text" id="quant">
+          	</div>
+	        <div class="field">
+	          <label>Tipo da Mercadoria</label>
+	          <div class="ui dropdown selection" id="tipoMercadoria" tabindex="0">
+	         	<div class="default text">Selecione o tipo da mercadoria</div>
+	          	<i class="dropdown icon"></i>
+	          	<div class="menu" tabindex="-1">
+	          		<div class="item" data-value="celular">Celular</div>
+	          		<div class="item" data-value="camisa">Camisa</div>
+	          	</div>
+	          </div>
+         	</div>
         </div>
         <div class="inline field">
           <div class="ui checkbox">
-            <input type="checkbox" name="terms" tabindex="0" class="hidden">
-            <label>I agree to the terms and conditions</label>
+            <input type="checkbox" id="terms" tabindex="0" class="hidden">
+            <label>Eu concordo com os termos e condições</label>
           </div>
         </div>
-        <div class="ui blue submit button">Submit</div>
+        <input type="submit" class="ui green submit button" value="Registrar"/>
         <div class="ui error message"></div>
       </form>
 	</div>

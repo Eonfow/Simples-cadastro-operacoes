@@ -6,6 +6,7 @@
     <res-type>javax.sql.DataSource</res-type>
     <res-auth>Container</res-auth>
   </resource-ref>
+  
   <servlet>
     <servlet-name>default</servlet-name>
     <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
@@ -19,11 +20,7 @@
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
-  <servlet>
-    <servlet-name>CancelarReservaListener</servlet-name>
-    <servlet-class>br.com.fiap.tds.controller.CancelarReservaListener</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
+  
   <servlet>
     <servlet-name>jsp</servlet-name>
     <servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
@@ -42,6 +39,7 @@
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
   <servlet-mapping>
     <servlet-name>default</servlet-name>
     <url-pattern>/</url-pattern>
@@ -51,9 +49,11 @@
     <url-pattern>*.jsp</url-pattern>
     <url-pattern>*.jspx</url-pattern>
   </servlet-mapping>
+  
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
+  
   <mime-mapping>
     <extension>123</extension>
     <mime-type>application/vnd.lotus-1-2-3</mime-type>

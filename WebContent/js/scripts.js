@@ -1,8 +1,5 @@
 $(document).ready(
 	function(){
-		
-		formValidation();
-		
 		$('.ui.dropdown').dropdown();
 		
 		$('.ui.checkbox').checkbox();
@@ -10,9 +7,11 @@ $(document).ready(
 		$('.ui.checkbox').popup({
 		    position : 'right center',
 		    target   : '.ui.checkbox',
-		    title    : 'Terms and Conditions',
-		    content  : 'Trains can be called "Slow Planes".'
+		    title    : 'Termos e Condicões',
+		    content  : 'Trens podem ser chamados como "Aviões Lentos".'
 		});
+		
+		$('.ui.form').form(validationRules);
 	}
 );
 
@@ -27,56 +26,108 @@ $(document).on('click', '.blue.item', function(){
 	$('.ui.form.container').addClass('loading');
 });
 
-function formValidation(){
-	$('.ui.form')
-	  .form({
+function registrarOperacao(){
+	
+	$('.ui.form.container').addClass('loading');
+	
+	var data = {
+			'fields' : {
+				'codigo' 			: $('#codigo').prop('value') ,
+				'tipoNegocio' 		: $('#tipoNegocio').dropdown('get value') ,
+				'nomeMerc' 			: $('#nomeMerc').prop('value') ,
+				'precoTotal' 		: $('#precoTotal').prop('value') ,
+				'quant' 			: $('#quant').prop('value') ,
+				'tipoMercadoria' 	: $('#tipoMercadoria').dropdown('get value')
+			}
+	}
+	
+	console.log(data['fields']);
+	
+	$.ajax({
+	    url: 'TransacaoServlet',
+	    type: 'POST',
+	    data: JSON.stringify(data),
+	    dataType: 'json',
+	    sucess: function(respJson){
+	    	$('.ui.form.container').removeClass('loading');
+	    	alert("Sucesso ao registrar operacao!");
+	    },
+	    error: function(respJson){
+	    	$('.ui.form.container').removeClass('loading');
+	    	alert("Falha ao registrar operacao");
+	    }
+	});
+}
+	
+var validationRules = {
 	    fields: {
+	      quant: {
+	    	identifier: 'quant',
+		    rules: [
+		       {
+		  		 type   : 'empty',
+		  		 prompt : 'Entre com uma quantidade'
+		  	   },
+		  	   {
+		  		 type	 : 'integer',
+		         prompt  : 'Quantidade deve ser um numero inteiro.'
+		       },
+		       {
+			  	 type	 : 'not[0]',
+			     prompt  : 'Quantidade deve ser um numero inteiro.'
+			   }
+		    ]
+	      },
 	      name: {
 	        identifier: 'codigo',
 	        rules: [
+			  {
+			 	type   : 'empty',
+		       	prompt : 'Entre com um codigo da mercadoria'
+			  },
 	          {
-	        	type	: 'exactLength[5]',
-	            prompt  : 'Code must be a 5 digits number.'
+	        	type	: 'integer',
+	            prompt  : 'Código deve ser um numero inteiro.'
 	          }
 	        ]
 	      },
-	      skills: {
-	        identifier: 'skills',
-	        rules: [
-	          {
-	            type   : 'minCount[2]',
-	            prompt : 'Please select at least two skills'
-	          }
-	        ]
-	      },
-	      gender: {
-	        identifier: 'gender',
+	      tipoMercadoria: {
+	        identifier: 'tipoMercadoria',
 	        rules: [
 	          {
 	            type   : 'empty',
-	            prompt : 'Please select a gender'
+	            prompt : 'Selecione um tipo de mercadoria'
 	          }
 	        ]
 	      },
-	      username: {
-	        identifier: 'username',
+	      tipoNegocio: {
+	        identifier: 'tipoNegocio',
 	        rules: [
 	          {
 	            type   : 'empty',
-	            prompt : 'Please enter a username'
+	            prompt : 'Selecione um tipo de negócio'
 	          }
 	        ]
 	      },
-	      password: {
-	        identifier: 'password',
+	      nomeMerc: {
+	        identifier: 'nomeMerc',
 	        rules: [
 	          {
 	            type   : 'empty',
-	            prompt : 'Please enter a password'
+	            prompt : 'Entre com um nome para a mercadoria'
+	          }
+	        ]
+	      },
+	      precoTotal: {
+	        identifier: 'precoTotal',
+	        rules: [
+	          {
+	            type   : 'empty',
+	            prompt : 'Entre com o preco total da operção'
 	          },
 	          {
-	            type   : 'minLength[6]',
-	            prompt : 'Your password must be at least {ruleValue} characters'
+	            type   : 'number',
+	            prompt : 'Preco deve ser um numero decimal'
 	          }
 	        ]
 	      },
@@ -90,5 +141,4 @@ function formValidation(){
 	        ]
 	      }
 	    }
-	  });
-}
+	  };
