@@ -31,17 +31,13 @@ function registrarOperacao(){
 	$('.ui.form.container').addClass('loading');
 	
 	var data = {
-			'fields' : {
 				'codigo' 			: $('#codigo').prop('value') ,
 				'tipoNegocio' 		: $('#tipoNegocio').dropdown('get value') ,
 				'nomeMerc' 			: $('#nomeMerc').prop('value') ,
 				'precoTotal' 		: $('#precoTotal').prop('value') ,
 				'quant' 			: $('#quant').prop('value') ,
 				'tipoMercadoria' 	: $('#tipoMercadoria').dropdown('get value')
-			}
-	}
-	
-	console.log(data['fields']);
+			   }
 	
 	$.ajax({
 	    url: 'TransacaoServlet',
