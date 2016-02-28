@@ -48,13 +48,15 @@ function registrarOperacao(){
 	    type: 'POST',
 	    data: JSON.stringify(data),
 	    dataType: 'json',
-	    sucess: function(respJson){
+	    complete: function(respJson){
+	    	var info = respJson['responseJSON'];
+	    	if(!info['cadastro']){
+	    		alert("Falha ao registrar operacao")
+	    	}else{
+	    		alert("Sucesso")
+	    	}
+	    	console.log(info['text']);
 	    	$('.ui.form.container').removeClass('loading');
-	    	alert("Sucesso ao registrar operacao!");
-	    },
-	    error: function(respJson){
-	    	$('.ui.form.container').removeClass('loading');
-	    	alert("Falha ao registrar operacao");
 	    }
 	});
 }

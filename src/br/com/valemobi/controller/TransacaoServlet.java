@@ -1,7 +1,7 @@
 package br.com.valemobi.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.eclipsesource.json.Json;
 import com.eclipsesource.json.JsonObject;
+import com.google.gson.Gson;
 
 import br.com.valemobi.bean.Operacao;
+import br.com.valemobi.bean.RespostaRegistroOperacao;
 import br.com.valemobi.bean.TipoMercadoria;
 import br.com.valemobi.bean.TipoNegocio;
 import br.com.valemobi.bo.OperacoesBO;
@@ -61,18 +63,28 @@ public class TransacaoServlet extends HttpServlet {
 		}else{
 			op.setTipoNegocio(null);
 		}
-			
+		
+		RespostaRegistroOperacao resp = new RespostaRegistroOperacao();
+		
 		try {
 			bo.registrarOperacao(op);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("erro");
+			resp.setText(e.getMessage());
+			resp.setCadastro(false);
 		}
 		
-		request.getRequestDispatcher("mostrarOperacoes.html").forward(request, response);
+		Gson g = new Gson();
+		
+		this.response(g.toJson(resp, RespostaRegistroOperacao.class), response);
+	}
+	
+	private void response(String o, HttpServletResponse response) throws IOException{
+		response.setContentType("application/json");
+		
+		PrintWriter out = response.getWriter();
+		
+		out.print(o);
 	}
 
 }
