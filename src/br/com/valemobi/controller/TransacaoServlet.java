@@ -32,17 +32,17 @@ public class TransacaoServlet extends HttpServlet {
 		OperacoesBO bo = new OperacoesBO();
 		JsonObject jObj = Json.parse(request.getParameterNames().nextElement()).asObject();
 		Operacao op = new Operacao();
-		
-		op.setCodigoMerc(jObj.getInt("codigo", 0));
+
+		op.setCodigoMerc(Integer.valueOf(jObj.getString("codigo", "0")));
 		op.setNomeMerc(jObj.getString("nomeMerc", null));
-		op.setPrecoTotal(jObj.getDouble("precoTotal", 0.0d));
-		op.setQuantidade(jObj.getInt("quant", 0));
+		op.setPrecoTotal(Double.valueOf(jObj.getString("precoTotal", "0.0")));
+		op.setQuantidade(Integer.valueOf(jObj.getString("quant", "0")));
 		
 		String tipoMerc = jObj.getString("tipoMercadoria", null);
-		if(tipoMerc.equals(TipoMercadoria.CAMISA.toString())){
+		if(tipoMerc.equalsIgnoreCase(TipoMercadoria.CAMISA.toString())){
 			op.setTipoMercadoria(TipoMercadoria.CAMISA);
 		
-		}else if(tipoMerc.equals(TipoMercadoria.CELULAR.toString())){
+		}else if(tipoMerc.equalsIgnoreCase(TipoMercadoria.CELULAR.toString())){
 			op.setTipoMercadoria(TipoMercadoria.CELULAR);
 		
 		}else{
@@ -51,10 +51,10 @@ public class TransacaoServlet extends HttpServlet {
 		
 		
 		String tipoNeg = jObj.getString("tipoNegocio", null);
-		if(tipoNeg.equals(TipoNegocio.COMPRA.toString())){
+		if(tipoNeg.equalsIgnoreCase(TipoNegocio.COMPRA.toString())){
 			op.setTipoNegocio(TipoNegocio.COMPRA);		
 			
-		}else if(tipoNeg.equals(TipoNegocio.VENDA.toString())){
+		}else if(tipoNeg.equalsIgnoreCase(TipoNegocio.VENDA.toString())){
 			op.setTipoNegocio(TipoNegocio.VENDA);	
 			
 		}else{
@@ -70,6 +70,7 @@ public class TransacaoServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		response.sendRedirect("mostrarOperacoes.html");
 	}
 
