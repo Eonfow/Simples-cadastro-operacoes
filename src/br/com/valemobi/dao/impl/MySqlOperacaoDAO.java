@@ -76,11 +76,11 @@ public class MySqlOperacaoDAO implements OperacaoDAO{
 		} catch (SQLException e) {
 			log.error("Erro ao inserir Operacao");
 			throw new SQLException("INSERT Operacao");
-		}
+		}		
+		conn.commit();
 		log.info("Operacao cadastrada!");
 		
 		log.info("Fechando conexao");		
-		conn.commit();		
 		PStmt.close();		
 		conn.close();
 		log.info("Conexao fechada com sucesso");

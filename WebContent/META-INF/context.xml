@@ -32,7 +32,7 @@
     -->
     
     <Resource name="jdbc/ConnectionPool" auth="Container" type="javax.sql.DataSource"
-               maxActive="5" maxIdle="2" maxWait="10000" minIdle="1" defaultAutoCommit="false"
+               maxActive="3" maxIdle="0" maxWait="5000" minIdle="0" defaultAutoCommit="false"
                username="rm73930" password="Ps776724"  driverClassName="com.mysql.jdbc.Driver"
                url="jdbc:mysql://mysqlinstance.cz131oanqrih.sa-east-1.rds.amazonaws.com:3306/innodb"/>    
 

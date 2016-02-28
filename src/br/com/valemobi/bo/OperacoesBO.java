@@ -10,6 +10,9 @@ import br.com.valemobi.dao.DAOFactory;
 import br.com.valemobi.dao.TipoBanco;
 import br.com.valemobi.dao.interfaces.OperacaoDAO;
 
+/**
+ * @author Bruno de Moura Ribeiro
+ */
 public class OperacoesBO {
 
 	private static final Logger log = LoggerFactory.getLogger(OperacoesBO.class);

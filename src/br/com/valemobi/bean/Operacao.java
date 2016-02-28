@@ -9,6 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;*/
 
+/**
+ * Classe para representar uma operacao
+ * @author Bruno de Moura Ribeiro
+ * @version 2.0
+ */
 //@Entity
 //@Table(name="T_TDM_OPERACAO")
 public class Operacao {
@@ -38,10 +43,18 @@ public class Operacao {
 	//@Column(name="VL_TOTAL")
 	private double precoTotal;
 
+	/**
+	 * 
+	 * @return {@link TipoNegocio}
+	 */
 	public TipoNegocio getTipoNegocio() {
 		return tipoNegocio;
 	}
 
+	/**
+	 * 
+	 * @param {@link TipoNegocio}
+	 */
 	public void setTipoNegocio(TipoNegocio tipoNegocio) {
 		this.tipoNegocio = tipoNegocio;
 	}

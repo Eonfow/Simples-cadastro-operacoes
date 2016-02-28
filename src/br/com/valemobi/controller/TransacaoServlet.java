@@ -19,6 +19,7 @@ import br.com.valemobi.bo.OperacoesBO;
 
 /**
  * Servlet implementation class TransacaoServlet
+ * @author Bruno de Moura Ribeiro
  */
 @WebServlet("/TransacaoServlet")
 public class TransacaoServlet extends HttpServlet {
@@ -71,7 +72,7 @@ public class TransacaoServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		response.sendRedirect("mostrarOperacoes.html");
+		request.getRequestDispatcher("mostrarOperacoes.html").forward(request, response);
 	}
 
 }

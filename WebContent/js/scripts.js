@@ -1,3 +1,7 @@
+/**
+ * @author Bruno de Moura Ribeiro
+ */
+
 $(document).ready(
 	function(){
 		$('.ui.dropdown').dropdown();

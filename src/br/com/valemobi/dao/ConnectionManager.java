@@ -81,8 +81,8 @@ public class ConnectionManager {
 			return single.ds.getConnection();		
 		}
 		catch (SQLException e) {
-			log.error("Erro ao obter a conexão com banco de dados");
-			throw new SQLException(e);
+			log.error("Erro ao obter a conexão com banco de dados usando data source, retornando backup");
+			return connectBackUp();
 		}
 		
 	}

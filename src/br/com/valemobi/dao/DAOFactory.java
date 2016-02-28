@@ -3,6 +3,9 @@ package br.com.valemobi.dao;
 import br.com.valemobi.dao.impl.MySqlOperacaoDAO;
 import br.com.valemobi.dao.interfaces.OperacaoDAO;
 
+/**
+ * @author Bruno de Moura Ribeiro
+ */
 public final class DAOFactory {
 	
 	TipoBanco tipo;
